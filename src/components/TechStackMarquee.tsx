@@ -162,13 +162,13 @@ const MarqueeRow = ({ technologies, direction, duration = 25 }: MarqueeRowProps)
 
 const TechStackMarquee = () => {
   return (
-    <section className="relative w-full overflow-hidden py-10 md:py-16 lg:py-20">
+    <section className="relative w-full overflow-hidden bg-card/40 py-10 md:py-16 lg:py-20">
       {/* Subtle radial background */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-card/20 via-background to-background" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-card/40 to-card/40" />
 
       {/* Fade overlays for edge effect */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent sm:w-16 md:w-24 lg:w-32" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent sm:w-16 md:w-24 lg:w-32" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-card/40 to-transparent sm:w-16 md:w-24 lg:w-32" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-card/40 to-transparent sm:w-16 md:w-24 lg:w-32" />
 
       <div className="relative flex flex-col gap-3 sm:gap-4 md:gap-5 overflow-hidden">
         {/* Row 1 - scrolls left */}
