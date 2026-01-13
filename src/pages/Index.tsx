@@ -1,7 +1,9 @@
 import { Github, Linkedin, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import TechStackMarquee from "@/components/TechStackMarquee";
 import FeaturedProjectsSection from "@/components/FeaturedProjectsSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -114,6 +116,9 @@ const Index = () => {
 
       {/* Featured Projects */}
       <FeaturedProjectsSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
