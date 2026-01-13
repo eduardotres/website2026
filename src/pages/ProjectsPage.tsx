@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, Search, ChevronDown, Globe } from "lucide-react";
+import Footer from "@/components/Footer";
 
 interface Project {
   id: string;
@@ -296,6 +297,9 @@ const ProjectsPage = () => {
           </div>
         )}
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
