@@ -80,12 +80,13 @@ const TechCard = ({
 }) => {
   return (
     <div
-      className={`flex h-[90px] w-[120px] flex-shrink-0 flex-col items-center justify-center gap-2 rounded-[14px] border transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 sm:h-[100px] sm:w-[140px] md:h-[110px] md:w-[160px] lg:h-[120px] lg:w-[180px] ${
+      className={`flex h-[90px] w-[120px] flex-shrink-0 flex-col items-center justify-center gap-2 rounded-[14px] border bg-card transition-all duration-200 hover:scale-[1.03] hover:-translate-y-1 hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.25)] focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-green-500/50 focus-visible:outline-none sm:h-[100px] sm:w-[140px] md:h-[110px] md:w-[160px] lg:h-[120px] lg:w-[180px] ${
         featured
-          ? "border-primary/60 bg-card shadow-[0_0_30px_rgba(34,197,94,0.15)]"
-          : "border-border/50 bg-card hover:border-border hover:shadow-lg"
+          ? "border-primary/60 shadow-[0_0_30px_rgba(34,197,94,0.15)]"
+          : "border-border/50"
       }`}
       aria-label={`${name} technology`}
+      tabIndex={0}
     >
       <Icon className="h-6 w-6 text-foreground/80 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-9 lg:w-9" />
       <span className="text-[11px] font-semibold text-foreground/90 sm:text-xs md:text-sm">
