@@ -1,5 +1,6 @@
 import { Github, Linkedin, Globe } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import TechnologiesSection from "@/components/TechnologiesSection";
 
 const Index = () => {
   return (
@@ -106,6 +107,9 @@ const Index = () => {
           </div>
         </div>
       </main>
+
+      {/* Technologies Section */}
+      <TechnologiesSection />
     </div>
   );
 };
