@@ -19,10 +19,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="relative w-full px-6 py-16 md:px-8 md:py-24">
+    <section className="relative w-full bg-card/30 px-6 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-3xl">
         {/* Card Container */}
-        <div className="relative overflow-hidden rounded-3xl border border-border/40 bg-card/80 px-8 py-12 backdrop-blur-sm md:px-16 md:py-16">
+        <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-[hsl(220,20%,10%)] px-8 py-12 shadow-2xl backdrop-blur-sm md:px-16 md:py-16">
           {/* Subtle glow effect */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
 
