@@ -1,7 +1,9 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, Search, ChevronDown, Globe } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Search, ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 interface Project {
   id: string;
@@ -76,8 +78,7 @@ const projects: Project[] = [
   },
 ];
 
-const allTechnologies = ["Todas", "React", "Next.js", "Vue", "Laravel", "TypeScript"];
-const sortOptions = ["Mais recentes", "Mais antigos"];
+const allTechnologies = ["React", "Next.js", "Vue", "Laravel", "TypeScript"];
 
 interface SelectProps {
   value: string;
@@ -152,9 +153,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const ProjectsPage = () => {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTech, setSelectedTech] = useState("Todas");
-  const [sortBy, setSortBy] = useState("Mais recentes");
+  const [selectedTech, setSelectedTech] = useState(t("projects.allTechnologies"));
+  const [sortBy, setSortBy] = useState(t("projects.sortRecent"));
+
+  const sortOptions = [t("projects.sortRecent"), t("projects.sortOldest")];
+  const techOptions = [t("projects.allTechnologies"), ...allTechnologies];
 
   const filteredProjects = useMemo(() => {
     let result = [...projects];
@@ -170,52 +175,24 @@ const ProjectsPage = () => {
     }
 
     // Filter by technology
-    if (selectedTech !== "Todas") {
+    if (selectedTech !== t("projects.allTechnologies")) {
       result = result.filter((p) => p.tags.includes(selectedTech));
     }
 
     // Sort
-    if (sortBy === "Mais recentes") {
+    if (sortBy === t("projects.sortRecent")) {
       result.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    } else if (sortBy === "Mais antigos") {
+    } else if (sortBy === t("projects.sortOldest")) {
       result.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     }
 
     return result;
-  }, [searchQuery, selectedTech, sortBy]);
+  }, [searchQuery, selectedTech, sortBy, t]);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4 md:px-12 lg:px-20">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <span className="text-lg font-bold text-primary-foreground">E</span>
-          </div>
-          <span className="text-lg font-semibold">
-            eduardo<span className="text-muted-foreground">.dev</span>
-          </span>
-        </Link>
-
-        <nav className="flex items-center gap-2">
-          <Link
-            to="/"
-            className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            Início
-          </Link>
-          <Link
-            to="/projects"
-            className="rounded-full bg-muted px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            Projetos
-          </Link>
-          <div className="ml-4 flex items-center gap-2 rounded-full border border-border px-3 py-2">
-            <Globe className="h-4 w-4 text-muted-foreground" />
-            <span className="text-sm text-muted-foreground">PT</span>
-          </div>
-        </nav>
-      </header>
+      <Header />
 
       <div className="mx-auto max-w-6xl px-6 py-8 md:px-8 md:py-12">
         {/* Back Link */}
@@ -224,17 +201,16 @@ const ProjectsPage = () => {
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          Voltar para o início
+          {t("projects.backToHome")}
         </Link>
 
         {/* Header */}
         <div className="mb-10">
           <h1 className="mb-3 text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
-            Lista de projetos
+            {t("projects.title")}
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Explore uma coleção de trabalhos que destacam minhas habilidades em
-            desenvolvimento frontend, design e performance.
+            {t("projects.subtitle")}
           </p>
         </div>
 
@@ -245,7 +221,7 @@ const ProjectsPage = () => {
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <input
               type="text"
-              placeholder="Pesquisar"
+              placeholder={t("projects.searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="h-11 w-full rounded-lg border border-border/50 bg-card/80 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground backdrop-blur-sm transition-colors hover:border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50"
@@ -258,7 +234,7 @@ const ProjectsPage = () => {
               <Select
                 value={selectedTech}
                 onChange={setSelectedTech}
-                options={allTechnologies}
+                options={techOptions}
               />
             </div>
             <div className="w-36 sm:w-40">
@@ -282,17 +258,17 @@ const ProjectsPage = () => {
         {filteredProjects.length === 0 && (
           <div className="flex flex-col items-center justify-center py-16 text-center">
             <p className="text-lg text-muted-foreground">
-              Nenhum projeto encontrado com os filtros selecionados.
+              {t("projects.noResults")}
             </p>
             <button
               onClick={() => {
                 setSearchQuery("");
-                setSelectedTech("Todas");
-                setSortBy("Mais recentes");
+                setSelectedTech(t("projects.allTechnologies"));
+                setSortBy(t("projects.sortRecent"));
               }}
               className="mt-4 text-sm text-primary hover:underline"
             >
-              Limpar filtros
+              {t("projects.clearFilters")}
             </button>
           </div>
         )}

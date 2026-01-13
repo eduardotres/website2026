@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects"
+  },
+  "language": {
+    "pt": "Português",
+    "en": "English"
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "greeting": "Hi, my name is Eduardo",
+    "title": "Software\nEngineer - full stack",
+    "description": "Specialist in transforming concepts into captivating digital experiences, with a precise focus on UX and SEO for superior results.",
+    "cta": "Get in touch",
+    "photoAlt": "Eduardo - Software Engineer"
+  },
+  "projects": {
+    "title": "Project list",
+    "subtitle": "Explore a collection of works that highlight my skills in frontend development, design, and performance.",
+    "backToHome": "Back to home",
+    "searchPlaceholder": "Search",
+    "allTechnologies": "All",
+    "sortRecent": "Most recent",
+    "sortOldest": "Oldest",
+    "noResults": "No projects found with the selected filters.",
+    "clearFilters": "Clear filters",
+    "featuredTitle": "Featured projects."
+  },
+  "footer": {
+    "description": "Building modern, performant, and accessible digital experiences.",
+    "navigation": "Navigation",
+    "connect": "Connect",
+    "copyright": "© 2026 Eduardo Rodrigues. All rights reserved."
+  }
+}
