@@ -1,5 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface Project {
   id: string;
@@ -122,6 +123,17 @@ const FeaturedProjectsSection = () => {
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
+        </div>
+
+        {/* View All Link */}
+        <div className="mt-12 flex justify-center">
+          <Link
+            to="/projects"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 text-sm font-medium text-foreground transition-all hover:border-primary/50 hover:bg-card"
+          >
+            {t("projects.viewAll")}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>
