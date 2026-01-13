@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Início",
+    "projects": "Projetos"
+  },
+  "language": {
+    "pt": "Português",
+    "en": "English"
+  },
+  "hero": {
+    "available": "Disponível para novos projetos",
+    "greeting": "Olá, meu nome é Eduardo",
+    "title": "Engenheiro de\nSoftware - full stack",
+    "description": "Especialista em transformar conceitos em experiências digitais cativantes, com um foco preciso em UX e SEO para resultados superiores.",
+    "cta": "Entrar em contato",
+    "photoAlt": "Eduardo - Engenheiro de Software"
+  },
+  "projects": {
+    "title": "Lista de projetos",
+    "subtitle": "Explore uma coleção de trabalhos que destacam minhas habilidades em desenvolvimento frontend, design e performance.",
+    "backToHome": "Voltar para o início",
+    "searchPlaceholder": "Pesquisar",
+    "allTechnologies": "Todas",
+    "sortRecent": "Mais recentes",
+    "sortOldest": "Mais antigos",
+    "noResults": "Nenhum projeto encontrado com os filtros selecionados.",
+    "clearFilters": "Limpar filtros",
+    "featuredTitle": "Projetos em destaque."
+  },
+  "footer": {
+    "description": "Desenvolvendo experiências digitais modernas, performáticas e acessíveis.",
+    "navigation": "Navegação",
+    "connect": "Conecte-se",
+    "copyright": "© 2026 Eduardo Rodrigues. Todos os direitos reservados."
+  }
+}

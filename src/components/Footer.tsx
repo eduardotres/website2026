@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="w-full border-t border-border/40 bg-background">
       <div className="mx-auto max-w-6xl px-6 py-12 md:px-8 md:py-16">
@@ -18,32 +21,32 @@ const Footer = () => {
               </span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Desenvolvendo experiências digitais modernas, performáticas e acessíveis.
+              {t("footer.description")}
             </p>
           </div>
 
           {/* Middle Column - Navigation */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-semibold text-foreground">Navegação</h3>
+            <h3 className="text-sm font-semibold text-foreground">{t("footer.navigation")}</h3>
             <nav className="flex flex-col gap-2">
               <Link
                 to="/"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                Início
+                {t("nav.home")}
               </Link>
               <Link
                 to="/projects"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                Projetos
+                {t("nav.projects")}
               </Link>
             </nav>
           </div>
 
           {/* Right Column - Social Links */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-semibold text-foreground">Conecte-se</h3>
+            <h3 className="text-sm font-semibold text-foreground">{t("footer.connect")}</h3>
             <div className="flex items-center gap-3">
               <a
                 href="https://github.com"
@@ -77,7 +80,7 @@ const Footer = () => {
         {/* Bottom Copyright */}
         <div className="mt-12 border-t border-border/40 pt-6">
           <p className="text-sm text-muted-foreground">
-            © 2026 Eduardo Rodrigues. Todos os direitos reservados.
+            {t("footer.copyright")}
           </p>
         </div>
       </div>

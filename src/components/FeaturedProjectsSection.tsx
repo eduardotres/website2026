@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface Project {
   id: string;
@@ -97,6 +98,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const FeaturedProjectsSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32">
       {/* Background effects */}
@@ -108,7 +111,7 @@ const FeaturedProjectsSection = () => {
         {/* Section Title */}
         <div className="mb-12 text-center md:mb-16">
           <h2 className="bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
-            Projetos em destaque.
+            {t("projects.featuredTitle")}
           </h2>
           {/* Glow effect behind title */}
           <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-32 w-64 -translate-x-1/2 bg-primary/10 blur-3xl" />
