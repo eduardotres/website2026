@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, Search, ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Search, ChevronDown, Globe } from "lucide-react";
 
 interface Project {
   id: string;
@@ -76,7 +76,7 @@ const projects: Project[] = [
 ];
 
 const allTechnologies = ["Todas", "React", "Next.js", "Vue", "Laravel", "TypeScript"];
-const sortOptions = ["Mais recentes", "A-Z", "Z-A"];
+const sortOptions = ["Mais recentes", "Mais antigos"];
 
 interface SelectProps {
   value: string;
@@ -176,10 +176,8 @@ const ProjectsPage = () => {
     // Sort
     if (sortBy === "Mais recentes") {
       result.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    } else if (sortBy === "A-Z") {
-      result.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortBy === "Z-A") {
-      result.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (sortBy === "Mais antigos") {
+      result.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     }
 
     return result;
@@ -187,6 +185,37 @@ const ProjectsPage = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Header */}
+      <header className="flex items-center justify-between px-6 py-4 md:px-12 lg:px-20">
+        <Link to="/" className="flex items-center gap-2">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+            <span className="text-lg font-bold text-primary-foreground">E</span>
+          </div>
+          <span className="text-lg font-semibold">
+            eduardo<span className="text-muted-foreground">.dev</span>
+          </span>
+        </Link>
+
+        <nav className="flex items-center gap-2">
+          <Link
+            to="/"
+            className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            Início
+          </Link>
+          <Link
+            to="/projects"
+            className="rounded-full bg-muted px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          >
+            Projetos
+          </Link>
+          <div className="ml-4 flex items-center gap-2 rounded-full border border-border px-3 py-2">
+            <Globe className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm text-muted-foreground">PT</span>
+          </div>
+        </nav>
+      </header>
+
       <div className="mx-auto max-w-6xl px-6 py-8 md:px-8 md:py-12">
         {/* Back Link */}
         <Link
