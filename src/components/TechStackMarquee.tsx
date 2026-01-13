@@ -80,7 +80,11 @@ const TechCard = ({
 }) => {
   return (
     <div
-      className={`flex h-[90px] w-[120px] flex-shrink-0 flex-col items-center justify-center gap-2 rounded-[14px] border bg-card transition-all duration-200 hover:scale-[1.03] hover:-translate-y-1 hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.25)] focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-green-500/50 focus-visible:outline-none sm:h-[100px] sm:w-[140px] md:h-[110px] md:w-[160px] lg:h-[120px] lg:w-[180px] ${
+      className={`relative flex h-[90px] w-[120px] flex-shrink-0 flex-col items-center justify-center gap-2 rounded-[14px] border bg-card
+      transform-gpu transition-all duration-200
+      hover:z-20 hover:scale-[1.03] hover:-translate-y-1 hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.25)]
+      focus-visible:z-20 focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-green-500/50 focus-visible:outline-none
+      sm:h-[100px] sm:w-[140px] md:h-[110px] md:w-[160px] lg:h-[120px] lg:w-[180px] ${
         featured
           ? "border-primary/60 shadow-[0_0_30px_rgba(34,197,94,0.15)]"
           : "border-border/50"
@@ -113,8 +117,8 @@ const MarqueeRow = ({ technologies, direction, duration = 25 }: MarqueeRowProps)
 
   if (prefersReducedMotion) {
     return (
-      <div className="flex w-full justify-center overflow-hidden">
-        <div className="flex flex-nowrap gap-3 sm:gap-4">
+      <div className="flex w-full justify-center overflow-hidden py-3">
+        <div className="flex flex-nowrap gap-3 px-2 sm:gap-4">
           {technologies.map((tech) => (
             <TechCard
               key={tech.name}
@@ -129,9 +133,9 @@ const MarqueeRow = ({ technologies, direction, duration = 25 }: MarqueeRowProps)
   }
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden py-3">
       <motion.div
-        className="flex flex-nowrap gap-3 sm:gap-4"
+        className="flex flex-nowrap gap-3 px-2 sm:gap-4"
         animate={{
           x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
         }}
@@ -170,7 +174,7 @@ const TechStackMarquee = () => {
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-card/40 to-transparent sm:w-16 md:w-24 lg:w-32" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-card/40 to-transparent sm:w-16 md:w-24 lg:w-32" />
 
-      <div className="relative flex flex-col gap-3 sm:gap-4 md:gap-5 overflow-hidden">
+      <div className="relative flex flex-col gap-3 overflow-hidden sm:gap-4 md:gap-5">
         {/* Row 1 - scrolls left */}
         <MarqueeRow technologies={row1Technologies} direction="left" duration={20} />
 
