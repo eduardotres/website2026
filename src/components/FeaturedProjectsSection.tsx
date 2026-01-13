@@ -1,0 +1,110 @@
+import { ArrowUpRight } from "lucide-react";
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+  tags: string[];
+}
+
+const projects: Project[] = [
+  {
+    id: "cabalx",
+    title: "Cabal X - Website",
+    description:
+      "Desenvolvimento de um site interativo e envolvente para um jogo MMORPG, projetado para ser o principal ponto de contato entre os jogadores e o universo do game.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind", "+5"],
+  },
+  {
+    id: "neogames",
+    title: "Neo Games - Update EP38",
+    description:
+      "Landing Page apresentando todos os novos conteúdos, recursos e melhorias incluídas na atualização do Episódio 38.",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind", "+1"],
+  },
+];
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  return (
+    <a
+      href={project.href}
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_40px_rgba(34,197,94,0.1)]"
+    >
+      {/* Image Banner */}
+      <div className="relative h-48 w-full overflow-hidden sm:h-56 md:h-64">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-60" />
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
+        {/* Title Row */}
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+            {project.title}
+          </h3>
+          <ArrowUpRight className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-all duration-300 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
+
+        {/* Description */}
+        <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+          {project.description}
+        </p>
+
+        {/* Tags */}
+        <div className="mt-auto flex flex-wrap gap-2 pt-2">
+          {project.tags.map((tag, index) => (
+            <span
+              key={index}
+              className="rounded-full border border-border/50 bg-background/50 px-3 py-1 text-xs font-medium text-muted-foreground"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </a>
+  );
+};
+
+const FeaturedProjectsSection = () => {
+  return (
+    <section className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32">
+      {/* Background effects */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-background to-transparent" />
+
+      <div className="relative mx-auto max-w-6xl px-6 md:px-8">
+        {/* Section Title */}
+        <div className="mb-12 text-center md:mb-16">
+          <h2 className="bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
+            Projetos em destaque.
+          </h2>
+          {/* Glow effect behind title */}
+          <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-32 w-64 -translate-x-1/2 bg-primary/10 blur-3xl" />
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedProjectsSection;
