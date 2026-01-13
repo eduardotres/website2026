@@ -1,0 +1,274 @@
+import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowUpRight, Search, ChevronDown } from "lucide-react";
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+  tags: string[];
+  date: string;
+}
+
+const projects: Project[] = [
+  {
+    id: "cabalx",
+    title: "Cabal X - Website",
+    description:
+      "Desenvolvimento de um site interativo e envolvente para um jogo MMORPG, projetado para ser o principal ponto de contato entre os jogadores e o universo do game.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind"],
+    date: "2024-12-01",
+  },
+  {
+    id: "neogames",
+    title: "Neo Games - Update EP38",
+    description:
+      "Landing Page apresentando todos os novos conteúdos, recursos e melhorias incluídas na atualização do Episódio 38.",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Next.js", "React", "TypeScript"],
+    date: "2024-11-15",
+  },
+  {
+    id: "fintech",
+    title: "FinTech Dashboard",
+    description:
+      "Painel administrativo completo para gestão financeira com gráficos interativos, relatórios em tempo real e integração com APIs bancárias.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["React", "TypeScript", "Recharts"],
+    date: "2024-10-20",
+  },
+  {
+    id: "ecommerce",
+    title: "E-commerce Platform",
+    description:
+      "Plataforma de e-commerce moderna com carrinho de compras, checkout integrado, painel do vendedor e sistema de avaliações.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Next.js", "Laravel", "PostgreSQL"],
+    date: "2024-09-10",
+  },
+  {
+    id: "saas-landing",
+    title: "SaaS Landing Page",
+    description:
+      "Landing page de alta conversão para produto SaaS, com animações suaves, seções de features e integração com sistema de pagamentos.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Vue", "TypeScript", "Tailwind"],
+    date: "2024-08-05",
+  },
+  {
+    id: "cms-portal",
+    title: "CMS Portal Admin",
+    description:
+      "Sistema de gerenciamento de conteúdo completo com editor visual, gestão de mídia, permissões de usuários e analytics integrado.",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Laravel", "Vue", "MySQL"],
+    date: "2024-07-12",
+  },
+];
+
+const allTechnologies = ["Todas", "React", "Next.js", "Vue", "Laravel", "TypeScript"];
+const sortOptions = ["Mais recentes", "A-Z", "Z-A"];
+
+interface SelectProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: string[];
+  placeholder?: string;
+}
+
+const Select = ({ value, onChange, options, placeholder }: SelectProps) => {
+  return (
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="h-11 w-full appearance-none rounded-lg border border-border/50 bg-card/80 px-4 pr-10 text-sm text-foreground backdrop-blur-sm transition-colors hover:border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50"
+      >
+        {placeholder && (
+          <option value="" disabled>
+            {placeholder}
+          </option>
+        )}
+        {options.map((option) => (
+          <option key={option} value={option} className="bg-card text-foreground">
+            {option}
+          </option>
+        ))}
+      </select>
+      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+    </div>
+  );
+};
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  return (
+    <a
+      href={project.href}
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_40px_rgba(34,197,94,0.1)]"
+    >
+      {/* Image Banner */}
+      <div className="relative h-56 w-full overflow-hidden sm:h-64 md:h-72">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent opacity-70" />
+        
+        {/* Arrow icon in corner */}
+        <div className="absolute bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary/90 text-primary-foreground opacity-0 transition-all duration-300 group-hover:opacity-100">
+          <ArrowUpRight className="h-4 w-4" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col gap-2 p-5 sm:p-6">
+        {/* Title Row */}
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+            {project.title}
+          </h3>
+          <ArrowUpRight className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-all duration-300 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
+
+        {/* Description */}
+        <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+      </div>
+    </a>
+  );
+};
+
+const ProjectsPage = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTech, setSelectedTech] = useState("Todas");
+  const [sortBy, setSortBy] = useState("Mais recentes");
+
+  const filteredProjects = useMemo(() => {
+    let result = [...projects];
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(
+        (p) =>
+          p.title.toLowerCase().includes(query) ||
+          p.description.toLowerCase().includes(query)
+      );
+    }
+
+    // Filter by technology
+    if (selectedTech !== "Todas") {
+      result = result.filter((p) => p.tags.includes(selectedTech));
+    }
+
+    // Sort
+    if (sortBy === "Mais recentes") {
+      result.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    } else if (sortBy === "A-Z") {
+      result.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortBy === "Z-A") {
+      result.sort((a, b) => b.title.localeCompare(a.title));
+    }
+
+    return result;
+  }, [searchQuery, selectedTech, sortBy]);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div className="mx-auto max-w-6xl px-6 py-8 md:px-8 md:py-12">
+        {/* Back Link */}
+        <Link
+          to="/"
+          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Voltar para o início
+        </Link>
+
+        {/* Header */}
+        <div className="mb-10">
+          <h1 className="mb-3 text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
+            Lista de projetos
+          </h1>
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Explore uma coleção de trabalhos que destacam minhas habilidades em
+            desenvolvimento frontend, design e performance.
+          </p>
+        </div>
+
+        {/* Filter Bar */}
+        <div className="mb-8 flex flex-col gap-3 rounded-xl border border-border/40 bg-card/50 p-3 backdrop-blur-sm sm:flex-row sm:items-center md:p-4">
+          {/* Search Input */}
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Pesquisar"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="h-11 w-full rounded-lg border border-border/50 bg-card/80 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground backdrop-blur-sm transition-colors hover:border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50"
+            />
+          </div>
+
+          {/* Selects */}
+          <div className="flex gap-3">
+            <div className="w-36 sm:w-40">
+              <Select
+                value={selectedTech}
+                onChange={setSelectedTech}
+                options={allTechnologies}
+              />
+            </div>
+            <div className="w-36 sm:w-40">
+              <Select
+                value={sortBy}
+                onChange={setSortBy}
+                options={sortOptions}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid gap-6 md:gap-8 lg:grid-cols-2">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {filteredProjects.length === 0 && (
+          <div className="flex flex-col items-center justify-center py-16 text-center">
+            <p className="text-lg text-muted-foreground">
+              Nenhum projeto encontrado com os filtros selecionados.
+            </p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedTech("Todas");
+                setSortBy("Mais recentes");
+              }}
+              className="mt-4 text-sm text-primary hover:underline"
+            >
+              Limpar filtros
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ProjectsPage;
