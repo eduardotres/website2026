@@ -28,6 +28,13 @@
     "featuredTitle": "Featured projects.",
     "viewAll": "View all projects"
   },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "Let's talk about your projects and what you're looking for!",
+    "sendEmail": "Send me an email",
+    "copyEmail": "Copy email",
+    "emailCopied": "Email copied!"
+  },
   "footer": {
     "description": "Building modern, performant, and accessible digital experiences.",
     "navigation": "Navigation",

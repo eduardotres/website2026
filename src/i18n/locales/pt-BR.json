@@ -28,6 +28,13 @@
     "featuredTitle": "Projetos em destaque.",
     "viewAll": "Ver todos os projetos"
   },
+  "contact": {
+    "title": "Entre em contato",
+    "subtitle": "Vamos conversar sobre seus projetos e o que você está procurando!",
+    "sendEmail": "Enviar um e-mail",
+    "copyEmail": "Copiar e-mail",
+    "emailCopied": "E-mail copiado!"
+  },
   "footer": {
     "description": "Desenvolvendo experiências digitais modernas, performáticas e acessíveis.",
     "navigation": "Navegação",

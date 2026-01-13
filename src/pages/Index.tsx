@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import TechStackMarquee from "@/components/TechStackMarquee";
 import FeaturedProjectsSection from "@/components/FeaturedProjectsSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
@@ -87,6 +88,9 @@ const Index = () => {
 
       {/* Featured Projects */}
       <FeaturedProjectsSection />
+
+      {/* Contact Section */}
+      <ContactSection />
 
       {/* Footer */}
       <Footer />
