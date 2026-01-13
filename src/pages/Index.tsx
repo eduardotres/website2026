@@ -11,12 +11,12 @@ const Index = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+      <div className="relative z-10 min-h-screen bg-background text-foreground">
       {/* Header */}
       <Header />
 
       {/* Hero Section */}
-      <main className="flex flex-col items-center gap-12 px-6 py-16 md:flex-row md:px-12 md:py-24 lg:px-20 lg:py-32">
+        <main className="mx-auto w-full max-w-6xl flex flex-col items-center gap-12 px-6 py-16 md:flex-row md:px-12 md:py-24 lg:px-20 lg:py-32">
         {/* Left Content */}
         <div className="flex flex-1 flex-col items-start gap-6">
           {/* Availability Badge */}

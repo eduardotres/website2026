@@ -36,15 +36,16 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="flex items-center justify-between px-6 py-4 md:px-12 lg:px-20">
-      <Link to="/" className="flex items-center gap-2">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-          <span className="text-lg font-bold text-primary-foreground">E</span>
-        </div>
-        <span className="text-lg font-semibold">
-          eduardo<span className="text-muted-foreground">.dev</span>
-        </span>
-      </Link>
+<header className="w-full px-6 py-4 md:px-12 lg:px-20">
+  <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
+    <Link to="/" className="flex items-center gap-2">
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+        <span className="text-lg font-bold text-primary-foreground">E</span>
+      </div>
+      <span className="text-lg font-semibold">
+        eduardo<span className="text-muted-foreground">.dev</span>
+      </span>
+    </Link>
 
       <nav className="flex items-center gap-2">
         <Link
@@ -106,6 +107,7 @@ const Header = () => {
           )}
         </div>
       </nav>
+      </div>
     </header>
   );
 };
