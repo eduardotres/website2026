@@ -28,6 +28,24 @@ const projects: Project[] = [
     href: "#",
     tags: ["Next.js", "React", "TypeScript", "Tailwind", "+1"],
   },
+  {
+    id: "fintech-dashboard",
+    title: "FinTech Dashboard",
+    description:
+      "Painel administrativo completo para gestão financeira com gráficos interativos, relatórios em tempo real e integração com APIs bancárias.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["React", "TypeScript", "Recharts", "Supabase", "+3"],
+  },
+  {
+    id: "ecommerce-platform",
+    title: "E-commerce Platform",
+    description:
+      "Plataforma de e-commerce moderna com carrinho de compras, checkout integrado, painel do vendedor e sistema de avaliações.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
+    href: "#",
+    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind", "+4"],
+  },
 ];
 
 const ProjectCard = ({ project }: { project: Project }) => {
