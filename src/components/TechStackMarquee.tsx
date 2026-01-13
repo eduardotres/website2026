@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { useMemo, useEffect, useState, useRef, useCallback } from "react";
+import { useMemo } from "react";
 import {
   ViteIcon,
   ReactIcon,
@@ -98,42 +98,22 @@ const TechCard = ({
 interface MarqueeRowProps {
   technologies: Technology[];
   direction: "left" | "right";
-  speed?: number;
+  duration?: number;
 }
 
-const MarqueeRow = ({ technologies, direction, speed = 40 }: MarqueeRowProps) => {
+const MarqueeRow = ({ technologies, direction, duration = 25 }: MarqueeRowProps) => {
   const prefersReducedMotion = useReducedMotion();
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [singleSetWidth, setSingleSetWidth] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Duplicate items for seamless loop (3x for safety)
+  // Duplicate items for seamless loop
   const duplicatedTechs = useMemo(
-    () => [...technologies, ...technologies, ...technologies],
+    () => [...technologies, ...technologies],
     [technologies]
   );
-
-  // Measure width of one set of items
-  const measureWidth = useCallback(() => {
-    if (trackRef.current) {
-      const width = trackRef.current.scrollWidth / 3;
-      setSingleSetWidth(width);
-    }
-  }, []);
-
-  useEffect(() => {
-    measureWidth();
-    window.addEventListener("resize", measureWidth);
-    return () => window.removeEventListener("resize", measureWidth);
-  }, [measureWidth]);
-
-  // Calculate animation duration based on width and speed
-  const duration = singleSetWidth > 0 ? singleSetWidth / speed : 20;
 
   if (prefersReducedMotion) {
     return (
       <div className="flex w-full justify-center overflow-hidden">
-        <div className="flex flex-nowrap gap-3 px-4 sm:gap-4">
+        <div className="flex flex-nowrap gap-3 sm:gap-4">
           {technologies.map((tech) => (
             <TechCard
               key={tech.name}
@@ -148,16 +128,11 @@ const MarqueeRow = ({ technologies, direction, speed = 40 }: MarqueeRowProps) =>
   }
 
   return (
-    <div
-      className="relative w-full overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="w-full overflow-hidden">
       <motion.div
-        ref={trackRef}
         className="flex flex-nowrap gap-3 sm:gap-4"
         animate={{
-          x: direction === "left" ? [0, -singleSetWidth] : [-singleSetWidth, 0],
+          x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
         }}
         transition={{
           x: {
@@ -169,7 +144,6 @@ const MarqueeRow = ({ technologies, direction, speed = 40 }: MarqueeRowProps) =>
         }}
         style={{
           willChange: "transform",
-          animationPlayState: isHovered ? "paused" : "running",
         }}
       >
         {duplicatedTechs.map((tech, index) => (
@@ -187,7 +161,7 @@ const MarqueeRow = ({ technologies, direction, speed = 40 }: MarqueeRowProps) =>
 
 const TechStackMarquee = () => {
   return (
-    <section className="relative w-screen overflow-hidden py-10 md:py-16 lg:py-20 -ml-[calc((100vw-100%)/2)]">
+    <section className="relative w-full overflow-hidden py-10 md:py-16 lg:py-20">
       {/* Subtle radial background */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-card/20 via-background to-background" />
 
@@ -195,12 +169,12 @@ const TechStackMarquee = () => {
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent sm:w-16 md:w-24 lg:w-32" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent sm:w-16 md:w-24 lg:w-32" />
 
-      <div className="relative flex flex-col gap-3 sm:gap-4 md:gap-5">
+      <div className="relative flex flex-col gap-3 sm:gap-4 md:gap-5 overflow-hidden">
         {/* Row 1 - scrolls left */}
-        <MarqueeRow technologies={row1Technologies} direction="left" speed={45} />
+        <MarqueeRow technologies={row1Technologies} direction="left" duration={20} />
 
         {/* Row 2 - scrolls right */}
-        <MarqueeRow technologies={row2Technologies} direction="right" speed={35} />
+        <MarqueeRow technologies={row2Technologies} direction="right" duration={30} />
       </div>
     </section>
   );
