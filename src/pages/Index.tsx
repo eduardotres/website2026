@@ -1,6 +1,7 @@
 import { Github, Linkedin, Globe } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import TechStackMarquee from "@/components/TechStackMarquee";
+import FeaturedProjectsSection from "@/components/FeaturedProjectsSection";
 
 const Index = () => {
   return (
@@ -110,6 +111,9 @@ const Index = () => {
 
       {/* Tech Stack Marquee */}
       <TechStackMarquee />
+
+      {/* Featured Projects */}
+      <FeaturedProjectsSection />
     </div>
   );
 };
