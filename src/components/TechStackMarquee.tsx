@@ -86,11 +86,10 @@ const TechCard = ({
       hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.25)]
       focus-visible:z-30 focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-green-500/50 focus-visible:outline-none
       sm:h-[94px] sm:w-[132px] md:h-[104px] md:w-[150px] lg:h-[112px] lg:w-[168px]
-      ${
-        featured
+      ${featured
           ? "border-primary/60 shadow-[0_0_30px_rgba(34,197,94,0.15)]"
           : "border-border/50"
-      }`}
+        }`}
       tabIndex={0}
       aria-label={name}
     >
@@ -145,8 +144,9 @@ const TechStackMarquee = () => {
     <section className="relative w-full overflow-hidden bg-card/40 py-5 md:py-6">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-card/40 to-card/40" />
 
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-12 bg-gradient-to-r from-card/40 to-transparent sm:w-16 md:w-24" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-12 bg-gradient-to-l from-card/40 to-transparent sm:w-16 md:w-24" />
+      <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-[25%] bg-gradient-to-r from-black/90 via-black/55 to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-[25%] bg-gradient-to-l from-black/90 via-black/55 to-transparent" />
+
 
       <div className="relative flex flex-col gap-2 sm:gap-3">
         <MarqueeRow technologies={row1Technologies} direction="left" duration={95} />
