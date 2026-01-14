@@ -1,6 +1,7 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import projectsData from "../data/projects.json";
 
 interface Project {
   id: string;
@@ -9,46 +10,12 @@ interface Project {
   image: string;
   href: string;
   tags: string[];
+  featured?: boolean;
 }
 
-const projects: Project[] = [
-  {
-    id: "cabalx",
-    title: "Cabal X - Website",
-    description:
-      "Desenvolvimento de um site interativo e envolvente para um jogo MMORPG, projetado para ser o principal ponto de contato entre os jogadores e o universo do game.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind", "+5"],
-  },
-  {
-    id: "neogames",
-    title: "Neo Games - Update EP38",
-    description:
-      "Landing Page apresentando todos os novos conteúdos, recursos e melhorias incluídas na atualização do Episódio 38.",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind", "+1"],
-  },
-  {
-    id: "fintech-dashboard",
-    title: "FinTech Dashboard",
-    description:
-      "Painel administrativo completo para gestão financeira com gráficos interativos, relatórios em tempo real e integração com APIs bancárias.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["React", "TypeScript", "Recharts", "Supabase", "+3"],
-  },
-  {
-    id: "ecommerce-platform",
-    title: "E-commerce Platform",
-    description:
-      "Plataforma de e-commerce moderna com carrinho de compras, checkout integrado, painel do vendedor e sistema de avaliações.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind", "+4"],
-  },
-];
+const projects: Project[] = (projectsData as Project[]).filter(
+  (project) => project.featured
+);
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (

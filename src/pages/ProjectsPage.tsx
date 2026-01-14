@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Search, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import projectsData from "../data/projects.json";
 
 interface Project {
   id: string;
@@ -13,70 +14,10 @@ interface Project {
   href: string;
   tags: string[];
   date: string;
+  featured?: boolean;
 }
 
-const projects: Project[] = [
-  {
-    id: "cabalx",
-    title: "Cabal X - Website",
-    description:
-      "Desenvolvimento de um site interativo e envolvente para um jogo MMORPG, projetado para ser o principal ponto de contato entre os jogadores e o universo do game.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind"],
-    date: "2024-12-01",
-  },
-  {
-    id: "neogames",
-    title: "Neo Games - Update EP38",
-    description:
-      "Landing Page apresentando todos os novos conteúdos, recursos e melhorias incluídas na atualização do Episódio 38.",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Next.js", "React", "TypeScript"],
-    date: "2024-11-15",
-  },
-  {
-    id: "fintech",
-    title: "FinTech Dashboard",
-    description:
-      "Painel administrativo completo para gestão financeira com gráficos interativos, relatórios em tempo real e integração com APIs bancárias.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["React", "TypeScript", "Recharts"],
-    date: "2024-10-20",
-  },
-  {
-    id: "ecommerce",
-    title: "E-commerce Platform",
-    description:
-      "Plataforma de e-commerce moderna com carrinho de compras, checkout integrado, painel do vendedor e sistema de avaliações.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Next.js", "Laravel", "PostgreSQL"],
-    date: "2024-09-10",
-  },
-  {
-    id: "saas-landing",
-    title: "SaaS Landing Page",
-    description:
-      "Landing page de alta conversão para produto SaaS, com animações suaves, seções de features e integração com sistema de pagamentos.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Vue", "TypeScript", "Tailwind"],
-    date: "2024-08-05",
-  },
-  {
-    id: "cms-portal",
-    title: "CMS Portal Admin",
-    description:
-      "Sistema de gerenciamento de conteúdo completo com editor visual, gestão de mídia, permissões de usuários e analytics integrado.",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=500&fit=crop",
-    href: "#",
-    tags: ["Laravel", "Vue", "MySQL"],
-    date: "2024-07-12",
-  },
-];
+const projects: Project[] = projectsData as Project[];
 
 const allTechnologies = ["React", "Next.js", "Vue", "Laravel", "TypeScript"];
 
