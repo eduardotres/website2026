@@ -39,7 +39,7 @@ interface Technology {
 const row1Technologies: Technology[] = [
   { name: "Vite", icon: ViteIcon },
   { name: "React", icon: ReactIcon },
-  { name: "Next.js", icon: NextJsIcon, featured: true },
+  { name: "Next.js", icon: NextJsIcon},
   { name: "Tailwind CSS", icon: TailwindIcon },
   { name: "TypeScript", icon: TypeScriptIcon },
   { name: "JavaScript", icon: JavaScriptIcon },
@@ -51,21 +51,13 @@ const row1Technologies: Technology[] = [
 ];
 
 const row2Technologies: Technology[] = [
-  { name: "React Query", icon: ReactQueryIcon },
-  { name: "Zod", icon: ZodIcon },
   { name: "Git", icon: GitIcon },
   { name: "GitHub", icon: GitHubIcon },
-  { name: "Framer Motion", icon: FramerIcon },
-  { name: "shadcn/ui", icon: ShadcnIcon },
   { name: "Figma", icon: FigmaIcon },
   { name: "Livewire", icon: LivewireIcon },
   { name: "FilamentPHP", icon: FilamentIcon },
   { name: "Laravel Nova", icon: NovaIcon },
-  { name: "MariaDB", icon: MariaDbIcon },
-  { name: "MySQL", icon: MySqlIcon },
-  { name: "PostgreSQL", icon: PostgreSqlIcon },
   { name: "Blockchain", icon: BlockchainIcon },
-  { name: "jQuery", icon: JQueryIcon },
   { name: "Bootstrap", icon: BootstrapIcon },
 ];
 
