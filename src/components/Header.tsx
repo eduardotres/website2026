@@ -40,9 +40,11 @@ const Header = () => {
       <div className="px-6 py-4 md:px-12 lg:px-20">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-lg font-semibold text-primary-foreground">
-              eduardotres<span className="text-muted-foreground">.com</span>
-            </span>
+            <img
+              src="/logo-header.png"
+              alt="Eduardo Tres logo"
+              className="h-16 w-auto scale-125 origin-left"
+            />
           </Link>
 
           <nav className="flex items-center gap-2">
