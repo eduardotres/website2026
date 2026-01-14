@@ -12,14 +12,11 @@ const Footer = () => {
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
           {/* Left Column - Logo & Description */}
           <div className="flex flex-col gap-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">E</span>
-              </div>
-              <span className="text-lg font-semibold">
-                eduardo<span className="text-muted-foreground">.dev</span>
-              </span>
-            </Link>
+          <Link to="/" className="flex items-center gap-2">
+            <span className="text-lg font-semibold text-primary-foreground">
+              eduardotres<span className="text-muted-foreground">.com</span>
+            </span>
+          </Link>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               {t("footer.description")}
             </p>

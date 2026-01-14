@@ -10,10 +10,10 @@
   "hero": {
     "available": "Disponível para novos projetos",
     "greeting": "Olá, meu nome é Eduardo",
-    "title": "Engenheiro de\nSoftware - full stack",
-    "description": "Especialista em transformar conceitos em experiências digitais cativantes, com um foco preciso em UX e SEO para resultados superiores.",
+    "title": "Experiências\nDigitais com Propósito",
+    "description": "Transformo ideias em produtos digitais bem pensados, unindo usabilidade, estratégia e performance para gerar resultados reais.",
     "cta": "Entrar em contato",
-    "photoAlt": "Eduardo - Engenheiro de Software"
+    "photoAlt": "Profissional de tecnologia trabalhando com produtos digitais"
   },
   "projects": {
     "title": "Lista de projetos",

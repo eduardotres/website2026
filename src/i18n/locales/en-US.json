@@ -9,11 +9,11 @@
   },
   "hero": {
     "available": "Available for new projects",
-    "greeting": "Hi, my name is Eduardo",
-    "title": "Software\nEngineer - full stack",
-    "description": "Specialist in transforming concepts into captivating digital experiences, with a precise focus on UX and SEO for superior results.",
+    "greeting": "Hello, my name is Eduardo",
+    "title": "Purpose Driven\nDigital Experiences",
+    "description": "I turn ideas into well-crafted digital products, combining usability, strategy, and performance to deliver real results.",
     "cta": "Get in touch",
-    "photoAlt": "Eduardo - Software Engineer"
+    "photoAlt": "Technology professional working with digital products"
   },
   "projects": {
     "title": "Project list",

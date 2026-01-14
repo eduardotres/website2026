@@ -11,12 +11,14 @@ const Index = () => {
   const { t } = useTranslation();
 
   return (
-      <div className="relative z-10 min-h-screen bg-background text-foreground">
+    <div className="relative z-10 min-h-screen bg-background text-foreground">
+
       {/* Header */}
       <Header />
 
       {/* Hero Section */}
-        <main className="mx-auto w-full max-w-6xl flex flex-col items-center gap-12 px-6 py-16 md:flex-row md:px-12 md:py-24 lg:px-20 lg:py-32">
+      <main className="mx-auto w-full max-w-6xl flex flex-col items-center gap-12 px-6 py-16 md:flex-row md:px-12 md:py-24 lg:px-20 lg:py-32">
+
         {/* Left Content */}
         <div className="flex flex-1 flex-col items-start gap-6">
           {/* Availability Badge */}
@@ -52,33 +54,30 @@ const Index = () => {
             </a>
             <div className="flex items-center gap-4">
               <a
-                href="#"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                href="https://github.com/eduardotres"
+                target="_blank"
+                className="group relative inline-flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5" />
+                <span className="pointer-events-none absolute inset-0 rounded-full bg-green-200/25 opacity-0 blur-[1px] transition-all duration-200 group-hover:opacity-100 group-hover:scale-110" />
+                <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-green-500 opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:scale-110" />
+
+                <Github className="relative z-10 h-5 w-5" />
               </a>
+
               <a
-                href="#"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                href="https://www.linkedin.com/in/eduardotres/"
+                target="_blank"
+                className="group relative inline-flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
+                <span className="pointer-events-none absolute inset-0 rounded-full bg-green-500/25 opacity-0 blur-[1px] transition-all duration-200 group-hover:opacity-100 group-hover:scale-110" />
+                <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-green-500 opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:scale-110" />
+
+                <Linkedin className="relative z-10 h-5 w-5" />
               </a>
             </div>
-          </div>
-        </div>
 
-        {/* Right Content - Profile Photo */}
-        <div className="flex flex-1 justify-center md:justify-end">
-          <div className="relative">
-            <div className="h-80 w-72 overflow-hidden rounded-3xl border-4 border-border shadow-2xl md:h-96 md:w-80 lg:h-[450px] lg:w-[380px]">
-              <img
-                src={profilePhoto}
-                alt={t("hero.photoAlt")}
-                className="h-full w-full object-cover"
-              />
-            </div>
           </div>
         </div>
       </main>

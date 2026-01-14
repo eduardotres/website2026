@@ -40,11 +40,8 @@ const Header = () => {
       <div className="px-6 py-4 md:px-12 lg:px-20">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <span className="text-lg font-bold text-primary-foreground">E</span>
-            </div>
-            <span className="text-lg font-semibold">
-              eduardo<span className="text-muted-foreground">.dev</span>
+            <span className="text-lg font-semibold text-primary-foreground">
+              eduardotres<span className="text-muted-foreground">.com</span>
             </span>
           </Link>
 
@@ -52,10 +49,9 @@ const Header = () => {
             <Link
               to="/"
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors
-  hover:bg-primary/15 hover:text-primary
-  ${isActive("/") ? "bg-primary/20 text-primary" : "text-muted-foreground"}
-`}
-
+                hover:bg-primary/15 hover:text-primary
+                ${isActive("/") ? "bg-primary/20 text-primary" : "text-muted-foreground"}
+              `}
             >
               {t("nav.home")}
             </Link>
@@ -63,8 +59,8 @@ const Header = () => {
             <Link
               to="/projects"
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground ${isActive("/projects")
-                  ? "bg-nav-active text-foreground"
-                  : "text-muted-foreground"
+                ? "bg-nav-active text-foreground"
+                : "text-muted-foreground"
                 }`}
             >
               {t("nav.projects")}

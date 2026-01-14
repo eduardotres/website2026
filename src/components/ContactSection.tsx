@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Mail, Copy, Check, Github, Linkedin, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const EMAIL = "contato@eduardotres.com";
+const EMAIL = "eduardotres19@gmail.com";
 
 const ContactSection = () => {
   const { t } = useTranslation();
@@ -68,7 +68,7 @@ const ContactSection = () => {
             {/* Social Links */}
             <div className="flex items-center gap-6">
               <a
-                href="https://github.com"
+                href="https://github.com/eduardotres"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -77,7 +77,7 @@ const ContactSection = () => {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/eduardotres/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
