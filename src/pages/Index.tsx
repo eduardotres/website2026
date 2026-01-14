@@ -1,6 +1,5 @@
 import { Github, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import profilePhoto from "@/assets/profile-photo.jpg";
 import TechStackMarquee from "@/components/TechStackMarquee";
 import FeaturedProjectsSection from "@/components/FeaturedProjectsSection";
 import ContactSection from "@/components/ContactSection";
@@ -86,7 +85,7 @@ const Index = () => {
       <TechStackMarquee />
 
       {/* Featured Projects */}
-      <FeaturedProjectsSection />
+      {/* <FeaturedProjectsSection /> */}
 
       {/* Contact Section */}
       <ContactSection />
