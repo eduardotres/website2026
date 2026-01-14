@@ -147,10 +147,9 @@ const TechStackMarquee = () => {
       <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-[25%] bg-gradient-to-r from-black/90 via-black/55 to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-[25%] bg-gradient-to-l from-black/90 via-black/55 to-transparent" />
 
-
       <div className="relative flex flex-col gap-2 sm:gap-3">
-        <MarqueeRow technologies={row1Technologies} direction="left" duration={95} />
-        <MarqueeRow technologies={row2Technologies} direction="right" duration={100} />
+        <MarqueeRow technologies={row1Technologies} direction="left" duration={120} />
+        <MarqueeRow technologies={row2Technologies} direction="right" duration={120} />
       </div>
     </section>
   );
