@@ -45,12 +45,6 @@ const Index = () => {
 
           {/* CTA and Social Links */}
           <div className="flex items-center gap-6 pt-4">
-            <a
-              href="#"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90"
-            >
-              {t("hero.cta")}
-            </a>
             <div className="flex items-center gap-4">
               <a
                 href="https://github.com/eduardotres"
