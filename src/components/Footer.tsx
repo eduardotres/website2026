@@ -12,7 +12,6 @@ const Footer = () => {
         <div className="grid gap-10 md:grid-cols-3 md:items-start">
           {/* Left Column - Logo & Description */}
           <div className="flex flex-col items-start gap-4">
-            {/* LOGO AREA: fixed height + hide overflow to avoid overlap */}
             <Link to="/" className="block">
               <div className="h-12 overflow-hidden">
                 <img
@@ -23,7 +22,7 @@ const Footer = () => {
                 />
               </div>
             </Link>
-            
+
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               {t("footer.description")}
             </p>
@@ -89,7 +88,7 @@ const Footer = () => {
 
         {/* Bottom Copyright */}
         <div className="mt-12 border-t border-border/40 pt-6">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-center text-sm text-muted-foreground">
             {t("footer.copyright")}
           </p>
         </div>
