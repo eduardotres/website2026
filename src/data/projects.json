@@ -1,9 +1,9 @@
 [
     {
         "id": "1",
-        "title": "EduardoTres - Portfólio",
-        "slug": "eduardotres",
-        "shortDescription": "Portfólio pessoal de Eduardo Trés com foco em criar produtos digitais bem executados, combinando usabilidade, estratégia e performance.",
+        "title": "LegacyRO - Servidor Ragnarok Online",
+        "slug": "legacyro",
+        "shortDescription": "Site oficial desenvolvido para o servidor LegacyRO (Ragnarok Online), com páginas de apresentação do servidor, notícias/atualizações, downloads, cadastro/login e links para a comunidade (Discord/redes sociais).",
         "category": "Sites",
         "tech": [
             "Vite",
@@ -15,19 +15,20 @@
             "Laravel",
             "PHP",
             "Docker",
-            "Vue",
-            "Nuxt"
+            "Filament"
         ],
         "featured": true,
-        "date": "2026-01-10",
-        "image": "/projects/eduardotres-portfolio.png",
-        "links": { "liveUrl": "https://eduardotres.com/" }
+        "date": "2026-01-24",
+        "image": "/projects/legacyro.png",
+        "links": {
+            "liveUrl": "https://legacyro.com.br/"
+        }
     },
     {
         "id": "2",
-        "title": "MaxCraft - Servidor Minecraft",
-        "slug": "maxcraft",
-        "shortDescription": "Servidor Minecraft 1.5.2 com FullPvP.",
+        "title": "Hiitmarqes - Portfólio",
+        "slug": "hiitmarqes",
+        "shortDescription": "Site institucional/portfólio desenvolvido para a Hiitmarqes, apresentando serviços de desenvolvimento sob medida (plugins personalizados e sistemas) voltados para servidores de jogos e aplicações web, com chamada para solicitar orçamento e área de projetos.",
         "category": "Sites",
         "tech": [
             "Vite",
@@ -35,88 +36,13 @@
             "Next.js",
             "Tailwind CSS",
             "TypeScript",
-            "JavaScript",
-            "Laravel",
-            "PHP",
-            "Docker",
-            "Vue",
-            "Nuxt"
+            "JavaScript"
         ],
         "featured": true,
         "date": "2026-01-15",
-        "image": "/projects/maxcraft.png",
-        "links": { "liveUrl": "https://maxcraft.com.br/" }
-    },
-    {
-        "id": "3",
-        "title": "RivalsRO - Ragnarok Online",
-        "slug": "rivalsro",
-        "shortDescription": "Servidor de Ragnarok Online que preserva a essência old-school, adicionando sistemas de qualidade de vida, progressão justa e objetivos de longo prazo para tornar cada sessão recompensadora.",
-        "category": "Sites",
-        "tech": [
-            "Vite",
-            "React",
-            "Next.js",
-            "Tailwind CSS",
-            "TypeScript",
-            "JavaScript",
-            "Laravel",
-            "PHP",
-            "Docker",
-            "Vue",
-            "Nuxt"
-        ],
-        "featured": true,
-        "date": "2026-01-18",
-        "image": "/projects/rivalsro.png",
-        "links": { "liveUrl": "https://rivalsro.hiitmarqes.com/" }
-    },
-    {
-        "id": "4",
-        "title": "RivalsRO - Ragnarok Online",
-        "slug": "rivalsro",
-        "shortDescription": "Servidor de Ragnarok Online que preserva a essência old-school, adicionando sistemas de qualidade de vida, progressão justa e objetivos de longo prazo para tornar cada sessão recompensadora.",
-        "category": "Sites",
-        "tech": [
-            "Vite",
-            "React",
-            "Next.js",
-            "Tailwind CSS",
-            "TypeScript",
-            "JavaScript",
-            "Laravel",
-            "PHP",
-            "Docker",
-            "Vue",
-            "Nuxt"
-        ],
-        "featured": true,
-        "date": "2026-01-18",
-        "image": "/projects/rivalsro.png",
-        "links": { "liveUrl": "https://rivalsro.hiitmarqes.com/" }
-    },
-    {
-        "id": "5",
-        "title": "RivalsRO - Ragnarok Online",
-        "slug": "rivalsro",
-        "shortDescription": "Servidor de Ragnarok Online que preserva a essência old-school, adicionando sistemas de qualidade de vida, progressão justa e objetivos de longo prazo para tornar cada sessão recompensadora.",
-        "category": "Sites",
-        "tech": [
-            "Vite",
-            "React",
-            "Next.js",
-            "Tailwind CSS",
-            "TypeScript",
-            "JavaScript",
-            "Laravel",
-            "PHP",
-            "Docker",
-            "Vue",
-            "Nuxt"
-        ],
-        "featured": true,
-        "date": "2026-01-18",
-        "image": "/projects/rivalsro.png",
-        "links": { "liveUrl": "https://rivalsro.hiitmarqes.com/" }
+        "image": "/projects/hiitmarqes.png",
+        "links": {
+            "liveUrl": "https://hiitmarqes.com/"
+        }
     }
 ]
