@@ -25,7 +25,7 @@ const projects: Project[] = (projectsData as Project[]).map((project) => ({
   tags: project.tech,
 }));
 
-const allTechnologies = ["React", "Next.js", "Vue", "Laravel", "TypeScript"];
+const allTechnologies = ["React", "Tailwind CSS", "Vue", "Laravel", "TypeScript", "PHP"];
 
 interface SelectProps {
   value: string;
