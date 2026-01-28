@@ -102,17 +102,21 @@ const FeaturedProjectsSection = () => {
 
         {/* Projects Carousel */}
         <div className="relative">
-          <Carousel opts={{ loop: true }}>
-            <CarouselContent>
-              {projects.map((project) => (
-                <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3 h-full flex items-stretch">
-                  <div className="flex flex-1 h-full"><ProjectCard project={project} /></div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+            <Carousel opts={{ loop: true }}>
+              <CarouselContent>
+                {projects.map((project) => (
+                  <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3 h-full flex items-stretch">
+                    <div className="flex flex-1 h-full"><ProjectCard project={project} /></div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {projects.length > 3 && (
+                <>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </>
+              )}
+            </Carousel>
         </div>
 
         {/* View All Link */}
