@@ -1,10 +1,10 @@
 import { Github, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import TechStackMarquee from "@/components/TechStackMarquee";
 import FeaturedProjectsSection from "@/components/FeaturedProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import WhatsappButton from "@/components/WhatsappButton";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -83,6 +83,9 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* WhatsApp Button */}
+      <WhatsappButton />
     </div>
   );
 };
