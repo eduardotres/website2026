@@ -137,7 +137,7 @@ const ProjectsPage = () => {
   }, [searchQuery, selectedTech, sortBy, t]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-[hsl(220,20%,10%)] text-foreground overflow-x-hidden">
       {/* Header */}
       <Header />
 
@@ -152,7 +152,7 @@ const ProjectsPage = () => {
         </Link>
 
         {/* Header */}
-        <div className="mb-10">
+        <div className="mb-10 mt-10">
           <h1 className="mb-3 text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
             {t("projects.title")}
           </h1>
