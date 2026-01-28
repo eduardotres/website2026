@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Copy, Check, Github, Linkedin, ArrowRight } from "lucide-react";
+import WhatsappSvgIcon from "./icons/WhatsappSvgIcon";
 import { useTranslation } from "react-i18next";
 
 const EMAIL = "eduardotres19@gmail.com";
@@ -40,10 +41,12 @@ const ContactSection = () => {
             {/* Buttons */}
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <a
-                href={`mailto:${EMAIL}`}
+                href={`https://wa.me/5527996257391?text=${encodeURIComponent(`Fala Edu, tudo bem?`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90"
               >
-                <Mail className="h-4 w-4" />
+                <WhatsappSvgIcon className="h-4 w-4" />
                 {t("contact.sendEmail")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
