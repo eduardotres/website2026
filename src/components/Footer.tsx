@@ -9,9 +9,9 @@ const Footer = () => {
     <footer className="w-full border-t border-border/40 bg-background">
       <div className="mx-auto max-w-6xl px-6 py-12 md:px-8 md:py-16">
         {/* Main Footer Content */}
-        <div className="grid gap-10 md:grid-cols-3 md:items-start">
+        <div className="grid gap-10 md:grid-cols-3 md:items-start text-center md:text-left">
           {/* Left Column - Logo & Description */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-center md:items-start gap-4">
             <Link to="/" className="block">
               <div className="h-12 overflow-hidden">
                 <img
@@ -23,17 +23,17 @@ const Footer = () => {
               </div>
             </Link>
 
-            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground mx-auto md:mx-0">
               {t("footer.description")}
             </p>
           </div>
 
           {/* Middle Column - Navigation */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 items-center md:items-start">
             <h3 className="text-sm font-semibold text-foreground">
               {t("footer.navigation")}
             </h3>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2 items-center md:items-start">
               <Link
                 to="/"
                 className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -50,11 +50,11 @@ const Footer = () => {
           </div>
 
           {/* Right Column - Social Links */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 items-center md:items-start">
             <h3 className="text-sm font-semibold text-foreground">
               {t("footer.connect")}
             </h3>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 justify-center md:justify-start">
               <a
                 href="https://github.com/eduardotres"
                 target="_blank"
