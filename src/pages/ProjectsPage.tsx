@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Search, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import WhatsappButton from "@/components/WhatsappButton";
 import projectsData from "../data/projects.json";
 
 interface Project {
@@ -222,6 +223,8 @@ const ProjectsPage = () => {
 
       {/* Footer */}
       <Footer />
+      {/* WhatsApp Button */}
+      <WhatsappButton />
     </div>
   );
 };
