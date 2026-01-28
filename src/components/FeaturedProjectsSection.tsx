@@ -34,7 +34,7 @@ const ProjectCard = ({ project }: { project: any }) => {
   return (
     <a
       href={project.href}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_40px_rgba(34,197,94,0.1)]"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_40px_rgba(34,197,94,0.1)] h-full min-h-[420px]"
       target="_blank" rel="noopener noreferrer"
     >
       {/* Image Banner */}
@@ -49,7 +49,7 @@ const ProjectCard = ({ project }: { project: any }) => {
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
+      <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6 min-h-0">
         {/* Title Row */}
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-lg font-semibold text-foreground sm:text-xl">
@@ -65,14 +65,14 @@ const ProjectCard = ({ project }: { project: any }) => {
 
         {/* Tags */}
         <div className="mt-auto flex flex-wrap gap-2 pt-2">
-          {project.tags.map((tag: string, index: number) => (
-            <span
-              key={index}
-              className="rounded-full border border-border/50 bg-background/50 px-3 py-1 text-xs font-medium text-muted-foreground"
-            >
-              {tag}
-            </span>
-          ))}
+            {project.tags.slice(0, 4).map((tag: string, index: number) => (
+              <span
+                key={index}
+                className="rounded-full border border-border/50 bg-background/50 px-3 py-1 text-xs font-medium text-muted-foreground"
+              >
+                {tag}
+              </span>
+            ))}
         </div>
       </div>
     </a>
@@ -105,8 +105,8 @@ const FeaturedProjectsSection = () => {
           <Carousel opts={{ loop: true }}>
             <CarouselContent>
               {projects.map((project) => (
-                <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
-                  <ProjectCard project={project} />
+                <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3 h-full flex items-stretch">
+                  <div className="flex flex-1 h-full"><ProjectCard project={project} /></div>
                 </CarouselItem>
               ))}
             </CarouselContent>

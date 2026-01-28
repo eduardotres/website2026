@@ -6,14 +6,13 @@
         "shortDescription": "Site oficial desenvolvido para o servidor LegacyRO (Ragnarok Online), com páginas de apresentação do servidor, notícias/atualizações, downloads, cadastro/login e links para a comunidade (Discord/redes sociais).",
         "category": "Sites",
         "tech": [
+            "Laravel",
+            "Tailwind CSS",
             "Vite",
             "React",
-            "Next.js",
-            "Tailwind CSS",
+            "PHP",
             "TypeScript",
             "JavaScript",
-            "Laravel",
-            "PHP",
             "Docker",
             "Filament"
         ],
@@ -33,7 +32,6 @@
         "tech": [
             "Vite",
             "React",
-            "Next.js",
             "Tailwind CSS",
             "TypeScript",
             "JavaScript"
