@@ -9,15 +9,20 @@ import projectsData from "../data/projects.json";
 interface Project {
   id: string;
   title: string;
-  description: string;
+  shortDescription: string;
   image: string;
-  href: string;
-  tags: string[];
+  links: { liveUrl: string };
+  tech: string[];
   date: string;
   featured?: boolean;
 }
 
-const projects: Project[] = projectsData as Project[];
+const projects: Project[] = (projectsData as Project[]).map((project) => ({
+  ...project,
+  description: project.shortDescription,
+  href: project.links.liveUrl,
+  tags: project.tech,
+}));
 
 const allTechnologies = ["React", "Next.js", "Vue", "Laravel", "TypeScript"];
 
@@ -55,8 +60,9 @@ const Select = ({ value, onChange, options, placeholder }: SelectProps) => {
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <a
-      href={project.href}
+      href={project.links.liveUrl}
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_40px_rgba(34,197,94,0.1)]"
+      target="_blank" rel="noopener noreferrer"
     >
       {/* Image Banner */}
       <div className="relative h-56 w-full overflow-hidden sm:h-64 md:h-72">
@@ -67,7 +73,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent opacity-70" />
-        
         {/* Arrow icon in corner */}
         <div className="absolute bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary/90 text-primary-foreground opacity-0 transition-all duration-300 group-hover:opacity-100">
           <ArrowUpRight className="h-4 w-4" />
@@ -86,7 +91,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         {/* Description */}
         <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-          {project.description}
+          {project.shortDescription}
         </p>
       </div>
     </a>
@@ -111,13 +116,13 @@ const ProjectsPage = () => {
       result = result.filter(
         (p) =>
           p.title.toLowerCase().includes(query) ||
-          p.description.toLowerCase().includes(query)
+          p.shortDescription.toLowerCase().includes(query)
       );
     }
 
     // Filter by technology
     if (selectedTech !== t("projects.allTechnologies")) {
-      result = result.filter((p) => p.tags.includes(selectedTech));
+      result = result.filter((p) => p.tech.includes(selectedTech));
     }
 
     // Sort
@@ -189,7 +194,7 @@ const ProjectsPage = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid gap-6 md:gap-8 lg:grid-cols-2">
+        <div className="grid gap-6 md:gap-8 lg:grid-cols-3">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

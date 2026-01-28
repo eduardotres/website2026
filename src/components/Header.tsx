@@ -58,7 +58,7 @@ const Header = () => {
               {t("nav.home")}
             </Link>
 
-           {/*  <Link
+            {<Link
               to="/projects"
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground ${isActive("/projects")
                 ? "bg-nav-active text-foreground"
@@ -66,7 +66,7 @@ const Header = () => {
                 }`}
             >
               {t("nav.projects")}
-            </Link> */}
+            </Link>}
 
             {/* Language Dropdown */}
             <div className="relative ml-4" ref={dropdownRef}>

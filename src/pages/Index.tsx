@@ -75,11 +75,8 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Tech Stack Marquee */}
-      <TechStackMarquee />
-
       {/* Featured Projects */}
-      {/* <FeaturedProjectsSection /> */}
+      {<FeaturedProjectsSection />}
 
       {/* Contact Section */}
       <ContactSection />

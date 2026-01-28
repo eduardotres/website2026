@@ -1,27 +1,41 @@
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "./ui/carousel";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import projectsData from "../data/projects.json";
 
+
 interface Project {
   id: string;
   title: string;
-  description: string;
+  shortDescription: string;
   image: string;
-  href: string;
-  tags: string[];
+  links: { liveUrl: string };
+  tech: string[];
   featured?: boolean;
 }
 
-const projects: Project[] = (projectsData as Project[]).filter(
-  (project) => project.featured
-);
+const projects: Project[] = (projectsData as Project[])
+  .filter((project) => project.featured)
+  .map((project) => ({
+    ...project,
+    description: project.shortDescription,
+    href: project.links.liveUrl,
+    tags: project.tech,
+  }));
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project }: { project: any }) => {
   return (
     <a
       href={project.href}
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_0_40px_rgba(34,197,94,0.1)]"
+      target="_blank" rel="noopener noreferrer"
     >
       {/* Image Banner */}
       <div className="relative h-48 w-full overflow-hidden sm:h-56 md:h-64">
@@ -51,7 +65,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         {/* Tags */}
         <div className="mt-auto flex flex-wrap gap-2 pt-2">
-          {project.tags.map((tag, index) => (
+          {project.tags.map((tag: string, index: number) => (
             <span
               key={index}
               className="rounded-full border border-border/50 bg-background/50 px-3 py-1 text-xs font-medium text-muted-foreground"
@@ -85,11 +99,20 @@ const FeaturedProjectsSection = () => {
           <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-32 w-64 -translate-x-1/2 bg-primary/10 blur-3xl" />
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+
+        {/* Projects Carousel */}
+        <div className="relative">
+          <Carousel opts={{ loop: true }}>
+            <CarouselContent>
+              {projects.map((project) => (
+                <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
+                  <ProjectCard project={project} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         {/* View All Link */}
