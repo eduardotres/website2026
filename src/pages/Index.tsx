@@ -5,6 +5,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WhatsappButton from "@/components/WhatsappButton";
+import ServicesSection from "@/components/ServicesSection";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -74,6 +75,9 @@ const Index = () => {
           </div>
         </div>
       </main>
+
+      {/* Services Section */}
+      {<ServicesSection />}
 
       {/* Featured Projects */}
       {<FeaturedProjectsSection />}

@@ -28,6 +28,31 @@
     "featuredTitle": "Projetos em destaque",
     "viewAll": "Ver todos os projetos"
   },
+  "services": {
+    "title": "Serviços",
+    "subtitle": "Soluções completas para fortalecer sua presença digital e gerar resultados",
+    "landingPages": {
+      "title": "Landing Pages",
+      "description": "Páginas de alta conversão para lançamentos, sites institucionais, captação de leads e vendas diretas.",
+      "price": "Sob consulta"
+    },
+    "webApps": {
+      "title": "Web Apps & Sistemas",
+      "description": "Aplicações sob medida: dashboards, portais e automações.",
+      "price": "Sob consulta"
+    },
+    "seo": {
+      "title": "SEO & Performance",
+      "description": "Otimização técnica e melhorias de performance para aumentar sua visibilidade no Google e acelerar o site.",
+      "price": "Sob consulta"
+    },
+    "ai": {
+      "title": "Automações com IA",
+      "description": "Chatbots, integrações e fluxos inteligentes para economizar horas do seu time e aumentar a eficiência.",
+      "price": "Sob consulta"
+    },
+    "cta": "Solicitar orçamento"
+  },
   "contact": {
     "title": "Entre em contato",
     "subtitle": "Vamos conversar sobre seus projetos e o que você está procurando!",

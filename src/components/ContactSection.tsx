@@ -20,7 +20,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="relative w-full bg-card/30 px-6 py-16 md:px-8 md:py-24">
+    <section id="contact" className="relative w-full bg-card/30 px-6 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-3xl">
         {/* Card Container */}
         <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-[hsl(220,20%,10%)] px-8 py-12 shadow-2xl backdrop-blur-sm md:px-16 md:py-16">

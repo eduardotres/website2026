@@ -28,6 +28,31 @@
     "featuredTitle": "Featured projects",
     "viewAll": "View all projects"
   },
+  "services": {
+    "title": "Services",
+    "subtitle": "Complete solutions to strengthen your digital presence and drive results",
+    "landingPages": {
+      "title": "Landing Pages",
+      "description": "High-converting pages for launches, corporate websites, lead generation, and direct sales.",
+      "price": "On request"
+    },
+    "webApps": {
+      "title": "Web Apps & Systems",
+      "description": "Custom-built applications: dashboards, portals, and automations.",
+      "price": "On request"
+    },
+    "seo": {
+      "title": "SEO & Performance",
+      "description": "Technical SEO and performance improvements to increase your Google visibility and speed up your website.",
+      "price": "On request"
+    },
+    "ai": {
+      "title": "AI Automations",
+      "description": "Chatbots, integrations, and smart workflows to save your team hours and boost efficiency.",
+      "price": "On request"
+    },
+    "cta": "Request a quote"
+  },
   "contact": {
     "title": "Get in touch",
     "subtitle": "Let's talk about your projects and what you're looking for!",
