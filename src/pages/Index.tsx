@@ -11,7 +11,7 @@ const Index = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative z-10 min-h-screen bg-background text-foreground">
+    <div className="relative z-10 min-h-screen bg-background text-foreground pt-20 md:pt-0">
 
       {/* Header */}
       <Header />
